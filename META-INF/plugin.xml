@@ -1,0 +1,27 @@
+<idea-plugin version="2">
+  <id>org.hamcrest.generation.matcher.builder</id>
+  <name>Hamcrest Matcher Builder Generator</name>
+  <version>1.0</version>
+  <vendor email="joao.silva.de.melo@gmail.com" url="http://example.com">Myself</vendor>
+
+  <!-- please see http://confluence.jetbrains.com/display/IDEADEV/Build+Number+Ranges for description -->
+  <idea-version since-build="131"/>
+
+  <depends>com.intellij.modules.java</depends>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <!-- Add your extensions here -->
+  </extensions>
+
+  <application-components>
+    <!-- Add your application components here -->
+  </application-components>
+
+  <actions>
+    <action id="generateHamcrestMatcher" class="org.hamcrest.matcher.generator.plugin.GenerateHamcrestMatcherAction" text="Generate Hamcrest Matcher" description="Generate Hamcrest Matcher">
+      <add-to-group group-id="CodeMenu" anchor="last"/>
+      <add-to-group group-id="JavaGenerateGroup1" anchor="last"/>
+      <keyboard-shortcut keymap="$default" first-keystroke="shift ctrl G" second-keystroke="shift ctrl M"/>
+    </action>
+  </actions>
+</idea-plugin>

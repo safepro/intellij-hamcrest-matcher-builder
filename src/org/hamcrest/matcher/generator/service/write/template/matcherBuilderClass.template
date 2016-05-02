@@ -1,0 +1,46 @@
+%1$s
+
+import org.hamcrest.BaseMatcher;
+import org.hamcrest.Description;
+import org.hamcrest.Matcher;
+import org.hamcrest.FeatureMatcher;
+import org.hamcrest.core.AllOf;
+
+import java.util.ArrayList;
+import java.util.Collection;
+
+%4$s
+
+public class %2$s extends BaseMatcher<%3$s> {
+    public static %7$s %2$s %6$sMatcher () {
+        return new %2$s();
+    }
+
+    private final Collection<Matcher<? super %3$s>> matchers = new ArrayList<>();
+
+    @Override
+    public boolean matches(Object input) {
+        return matcher().matches(input);
+    }
+    
+    private Matcher<? super %3$s> matcher () {
+        return AllOf.allOf(matchers);
+    }
+
+    @Override
+    public void describeTo(Description description) {
+        description.appendDescriptionOf(matcher());
+    }
+
+    @Override
+    public void describeMismatch(Object item, Description description) {
+        matcher().describeMismatch(item, description);
+    }
+    
+    public %2$s with (Matcher<? super %3$s> matcher) {
+        matchers.add(matcher);
+        return this;
+    }
+
+    %5$s
+}

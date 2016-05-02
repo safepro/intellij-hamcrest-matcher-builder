@@ -1,0 +1,9 @@
+
+    public %1$s %2$s (Matcher<? super %3$s> matcher) {
+        return with(new FeatureMatcher<%4$s, %3$s>(matcher, "%5$s", "%6$s") {
+            @Override
+            protected %3$s featureValueOf(%4$s input) {
+                return input.%7$s();
+            }
+        });
+    }
